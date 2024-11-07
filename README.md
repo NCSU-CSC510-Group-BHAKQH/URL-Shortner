@@ -59,7 +59,7 @@ URL-Shortner has APIs developed using python and front-end web application devel
 ##### Linux
 ```
 sudo apt update
-sudo apt install libmysqlclient-dev
+sudo apt install libmysqlclient-dev mysql-server mysql-client
 ```
 ##### MacOS
 ```
