@@ -54,12 +54,41 @@ URL-Shortner has APIs developed using python and front-end web application devel
 
 ## How to use?
 
-### Install
+### Installation Steps
+#### 1. First install required MySQL dependencies
+##### Linux
+```
+sudo apt update
+sudo apt install libmysqlclient-dev
+```
+##### MacOS
+```
+brew install mysql
+```
 
-1. Go to url_shortner_server
-2. do pip install -r requirements.txt
-3. do python manage.py runserver
-4. go to http://127.0.0.1:8000/
+#### 2. Install Python packages and start server
+```
+cd url_shortner_server
+pip install -r requirements.txt
+```
+
+#### 3. Create a MySQL database on your System
+```
+# Login to MySQL
+sudo mysql -u root -p
+CREATE DATABASE urlshortner;
+CREATE USER 'djangouser'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON urlshortner.* TO 'djangouser'@'localhost';
+FLUSH PRIVILEGES;
+```
+
+#### 4. Run Migrations and Start server
+```
+python3 manage.py migrate
+python3 manage.py runserver
+```
+
+#### 3. Navigate to http://127.0.0.1:8000/
 
 You can then go ahead and signup by giving basic details. We do not ask for credit card, or any other PII as your data is precious!
 
