@@ -14,11 +14,12 @@ class Link(models.Model):
 
     # 2083 is the max length of URL supported by Microsoft Edge
     long_url = models.CharField(max_length=2083)
-    special_code = models.UUIDField(
-        primary_key=True, default=uuid4, editable=False)
+    special_code = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     stub = models.CharField(max_length=STUB_LENGTH, unique=True)
     username = models.CharField(max_length=2083, default="xxx")
     ctr = models.IntegerField(blank=True, null=True)
+    possibly_malicious = models.BooleanField(default=False)
+    virus_total_analysis_id = models.CharField(max_length=128)
 
     def save(self, *args, **kwargs):
         seed(str(self.special_code))
@@ -44,12 +45,14 @@ class Link(models.Model):
 
 
 def give_link_by_username_long_url(username, long_url):
-    '''filter by username and long url'''
-    link = Link.objects.get(username=username, long_url=long_url) # pylint: disable=no-member
+    """filter by username and long url"""
+    link = Link.objects.get(
+        username=username, long_url=long_url
+    )  # pylint: disable=no-member
     return link
 
 
 def give_links(username):
     """filter by username"""
-    links = Link.objects.filter(username=username) # pylint: disable=no-member
+    links = Link.objects.filter(username=username)  # pylint: disable=no-member
     return links

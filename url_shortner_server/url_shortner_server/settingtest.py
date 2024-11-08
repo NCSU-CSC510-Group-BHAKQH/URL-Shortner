@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,8 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = (
-    "django-insecure-=dogutq%d--x-&l%5al*f7i^rdg&0_qvtot^s9_#4f4vy1zg@o")
+SECRET_KEY = "django-insecure-=dogutq%d--x-&l%5al*f7i^rdg&0_qvtot^s9_#4f4vy1zg@o"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -92,20 +92,19 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": ("django.contrib.auth."
-                 "password_validation.UserAttributeSimilarityValidator"),
+        "NAME": (
+            "django.contrib.auth."
+            "password_validation.UserAttributeSimilarityValidator"
+        ),
     },
     {
-        "NAME": ("django.contrib.auth."
-                 "password_validation.MinimumLengthValidator"),
+        "NAME": ("django.contrib.auth." "password_validation.MinimumLengthValidator"),
     },
     {
-        "NAME": ("django.contrib.auth."
-                 "password_validation.CommonPasswordValidator"),
+        "NAME": ("django.contrib.auth." "password_validation.CommonPasswordValidator"),
     },
     {
-        "NAME": ("django.contrib.auth."
-                 "password_validation.NumericPasswordValidator"),
+        "NAME": ("django.contrib.auth." "password_validation.NumericPasswordValidator"),
     },
 ]
 
@@ -126,10 +125,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "static/"
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+STATIC_ROOT = os.path.join(BASE_DIR, "assets")
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 

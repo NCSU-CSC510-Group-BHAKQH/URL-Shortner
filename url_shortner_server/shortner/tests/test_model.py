@@ -2,8 +2,9 @@ from unittest import TestCase
 from shortner.models import Link
 import uuid
 
+
 class TestModel(TestCase):
-    
+
     def test_create_new_entry_1(self):
         unique_special_code = str(uuid.uuid4())
         link = Link.objects.create(
@@ -184,13 +185,14 @@ class TestModel(TestCase):
             stub="tttttttttt",
         )
         self.assertIsInstance(link.to_json(), str)
+
     def setUp(self):
         self.unique_special_code = str(uuid.uuid4())
         self.link = Link.objects.create(
             long_url="https://www.example.com",
             special_code=self.unique_special_code,
             stub="abcd1234ef",
-            username="test_user"
+            username="test_user",
         )
 
     def test_create_new_entry(self):
@@ -201,23 +203,24 @@ class TestModel(TestCase):
 
     def test_long_url_max_length(self):
         max_length_url = "https://" + "a" * (2083 - 8)
-        link = Link.objects.create(long_url=max_length_url, special_code=str(uuid.uuid4()), stub="abcd1234ef")
+        link = Link.objects.create(
+            long_url=max_length_url, special_code=str(uuid.uuid4()), stub="abcd1234ef"
+        )
         self.assertEqual(link.long_url, max_length_url)
 
     def test_stub_unique(self):
         another_link = Link.objects.create(
             long_url="https://www.different.com",
             special_code=str(uuid.uuid4()),
-            stub="unique_stub"
+            stub="unique_stub",
         )
         self.assertNotEqual(self.link.stub, another_link.stub)
-
 
     def test_username_default_value(self):
         link_without_username = Link.objects.create(
             long_url="https://www.another.com",
             special_code=str(uuid.uuid4()),
-            stub="stub1234"
+            stub="stub1234",
         )
         self.assertEqual(link_without_username.username, "xxx")
 

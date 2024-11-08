@@ -1,4 +1,5 @@
 """Views module stores all the views of the application"""
+
 from shortner.new_view import NewView
 from shortner.stub_view import StubView
 from shortner.delete_view import DeleteView
@@ -13,8 +14,17 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 
-__all__ = ["NewView", "StubView", "UpdateView", "DeleteView",
-           "ListUrlsView", "login_test", "CustomView", "StatsView", "delete_all_urls"]
+__all__ = [
+    "NewView",
+    "StubView",
+    "UpdateView",
+    "DeleteView",
+    "ListUrlsView",
+    "login_test",
+    "CustomView",
+    "StatsView",
+    "delete_all_urls",
+]
 
 
 def home(request):
@@ -39,28 +49,43 @@ def signup(request):
         elif User.objects.filter(email=email).exists():
             messages.error(request, "Email is already used")
         elif len(email) < 4:
-            messages.error(request, "Email must be greater \
-                than 3 characters.")
+            messages.error(
+                request,
+                "Email must be greater \
+                than 3 characters.",
+            )
         elif len(fname) < 2:
-            messages.error(request, "First name must be \
-                greater than 1 character.")
+            messages.error(
+                request,
+                "First name must be \
+                greater than 1 character.",
+            )
         elif len(lname) < 2:
-            messages.error(request, "Last name must be \
-                greater than 1 character.")
+            messages.error(
+                request,
+                "Last name must be \
+                greater than 1 character.",
+            )
         elif password1 != password2:
             messages.error(request, "Passwords don't match.")
         elif len(password1) < 5:
-            messages.error(request, "Password must be \
-                at least 5 characters.")
+            messages.error(
+                request,
+                "Password must be \
+                at least 5 characters.",
+            )
         else:
             myuser = User.objects.create_user(uservalue, email, password1)
             myuser.first_name = fname
             myuser.last_name = lname
 
             myuser.save()
-            messages.success(request, "Your Account has been \
-                successfully created.")
-            request.session['username'] = uservalue
+            messages.success(
+                request,
+                "Your Account has been \
+                successfully created.",
+            )
+            request.session["username"] = uservalue
             return redirect("home")
     return render(request, "authentication/signup.html")
 
@@ -76,7 +101,7 @@ def signin(request):
         if user is not None:
             login(request, user)
             fname = user.first_name
-            request.session['username'] = username
+            request.session["username"] = username
             return redirect("homepage", fname=fname)
         else:
             messages.error(request, "Bad Credentials!")
@@ -88,21 +113,23 @@ def signin(request):
 
 def homepage(request, fname):
     """homepage view"""
-    if (request.method == 'GET'):
+    if request.method == "GET":
         messages.success(request, "Login Successfull!")
         print(f"{fname} has logged in")
         args = {}
-        args['userFname'] = fname
-        return render(request, 'homepages/AboutUs.html', args)
+        args["userFname"] = fname
+        return render(request, "homepages/AboutUs.html", args)
 
 
 def about_us(request):
     """home landing page"""
-    return render(request, 'homepages/AboutUs.html')  # 
+    return render(request, "homepages/AboutUs.html")  #
+
 
 def create_url(request):
     """URL Create page"""
-    return render(request, 'homepages/index.html')  # 
+    return render(request, "homepages/index.html")  #
+
 
 def signout(request):
     """signout view"""
@@ -110,11 +137,12 @@ def signout(request):
     messages.success(request, "Logged Out Successfully!")
     return redirect("home")
 
+
 def delete_all_urls(request):
     """delete all urls"""
     if request.method == "POST":
-        username = request.session.get('username')
+        username = request.session.get("username")
         if username:
-             # Delete URLs for the logged-in user 
-            Link.objects.filter(username=username).delete() # pylint: disable=no-member
-    return redirect('list')  # Redirect back to the list page
+            # Delete URLs for the logged-in user
+            Link.objects.filter(username=username).delete()  # pylint: disable=no-member
+    return redirect("list")  # Redirect back to the list page

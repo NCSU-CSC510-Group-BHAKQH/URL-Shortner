@@ -223,6 +223,11 @@
       background: rgba(255, 99, 71, 0.9);
       transform: translateY(-2px); /* Lift effect on hover */
     }
+
+	.warning-text {
+		font-size: 0.85em;
+		color: red;
+	}
   </style>
 </head>
 
@@ -266,6 +271,9 @@
                 <td>
                   <div class="event-wrap">
                     <p><a href="{{ link.long_url }}" target="_blank">{{ link.long_url }}</a></p>
+					{% if link.possibly_malicious %}
+      				<p class="warning-text">WARNING: This link has been identified as possibly malicious!</p>
+					{% endif %}
                   </div>
                 </td>
                 <td>
