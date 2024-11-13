@@ -33,3 +33,6 @@ jobs:
 
       - name: Lint with autopep8
         run: autopep8 --in-place -r .
+
+      - name: Lint with pylint
+        run: pylint --recursive=y .
