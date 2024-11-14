@@ -23,6 +23,7 @@ from shortner.views import (
     DeleteView,
     delete_all_urls,
     VirusTotalStatsView,
+    LinkStatsView,
 )
 from shortner.views import (
     CustomView,
@@ -59,4 +60,5 @@ urlpatterns = [
     path("homepage/<str:fname>", homepage, name="homepage"),
     path("vt_stats", VirusTotalStatsView.as_view(), name="vt_stats"),
     path("vt_stats_full", vt_stats_full, name="vt_stats_full"),
+    path('link/stats/<uuid:special_code>/', LinkStatsView.as_view(), name='link_stats'),
 ]

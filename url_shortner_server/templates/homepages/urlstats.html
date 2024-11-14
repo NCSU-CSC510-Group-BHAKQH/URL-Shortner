@@ -259,6 +259,7 @@
                                             <th scope="col">Long URL</th>
                                             <th scope="col">Stub</th>
                                             <th scope="col">Count</th>
+                                            <th scope="col">Statistics</th>
                                             <th scope="col" class="text-center">Actions</th>
                                         </tr>
                                     </thead>
@@ -267,7 +268,7 @@
                                         <tr class="inner-box">
                                             <td>
                                                 <div class="event-wrap">
-                                                    <p><a href="{{ link.long_url }}">{{ link.long_url }}</a></p>
+                                                    <p><a href="{{ link.long_url }}" target="_blank">{{ link.long_url }}</a></p>
 													{% if link.possibly_malicious %}
 													<p class="warning-text">WARNING: This link has been identified as possibly malicious!</p>
 													{% endif %}
@@ -275,12 +276,17 @@
                                             </td>
                                             <td>
                                                 <div class="r-no">
-                                                    <span><p><a href="{{ link.short_url }}">{{ link.short_url }}</a></p></span>
+                                                    <span><p><a href="{{ link.short_url }}" target="_blank">{{ link.short_url }}</a></p></span>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="r-no">
                                                     <span>{{ link.ctr }}</span>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="action-btns">
+                                                    <a href="{% url 'link_stats' link.special_code %}" class="btn btn-secondary">Stats</a>
                                                 </div>
                                             </td>
                                             <td class="text-center">
