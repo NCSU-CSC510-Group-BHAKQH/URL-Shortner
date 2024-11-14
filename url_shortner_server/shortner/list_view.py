@@ -21,7 +21,7 @@ class ListUrlsView(View):
         for linkObj in list_of_links:
             x = dict()
             x["long_url"] = linkObj.long_url
-            x["short_url"] = request.build_absolute_uri("/") + linkObj.stub
+            x["short_url"] = request.build_absolute_uri("/") + "stub/" + linkObj.stub
             x["special_code"] = linkObj.special_code
             x["possibly_malicious"] = linkObj.possibly_malicious
             x["vt_analysis_id"] = linkObj.vt_analysis_id
