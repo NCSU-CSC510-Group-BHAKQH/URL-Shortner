@@ -182,7 +182,7 @@ class TestViews(TestCase):
         rows = list(csv_reader)
 
         self.assertEqual(len(rows), 2)
-        self.assertEqual(rows[0], ["Long URL", "Short URL", "CTR"])
+        self.assertEqual(rows[0], ["Long URL", "Short URL", "CTR", "Device Type", "Browser"])
 
     def test_export_csv_multiple_links(self):
         self.client.post(
