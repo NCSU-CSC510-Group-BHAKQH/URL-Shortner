@@ -260,6 +260,9 @@
                                             <th scope="col">Access Time</th>
                                             <th scope="col">Device Type</th>
                                             <th scope="col">Browser</th>
+                                            <th scope="col">City</th>
+                                            <th scope="col">Region</th>
+                                            <th scope="col">Country</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -268,6 +271,9 @@
                                             <td>{{ access.accessed_at}}</td>
                                             <td>{{ access.device_type }}</td>
                                             <td>{{ access.browser }}</td>
+                                            <td>{{ access.city }}</td>
+                                            <td>{{ access.region }}</td>
+                                            <td>{{ access.country }}</td>
                                         </tr>
                                         {% empty %}
                                         <tr>
@@ -280,7 +286,7 @@
                         </div>
                     </div>
                     <div class="primary-btn text-center">
-                        <form action="{% url 'export_csv' %}" method="get" style="display: inline;">
+                        <form action="{% url 'export_stats_csv' %}" method="get" style="display: inline;">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-primary btn-lg">Export URLs</button>
                         </form>
