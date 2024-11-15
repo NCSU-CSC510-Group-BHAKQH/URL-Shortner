@@ -23,13 +23,14 @@ class StubView(View):
 
             user_agent_string = self.request.META.get('HTTP_USER_AGENT', '')
             user_agent = parse(user_agent_string)
+            device_family = "PC" if user_agent.is_pc else user_agent.device.family
 
             LinkAccess.objects.create(
                 link=link,
                 ip_address=self.request.META.get('REMOTE_ADDR', ''),
                 user_agent=user_agent_string,
                 browser=user_agent.browser.family,
-                device_type=user_agent.device.family,
+                device_type=device_family,
             )
 
             return HttpResponseRedirect(link.long_url)
