@@ -286,7 +286,7 @@
                         </div>
                     </div>
                     <div class="primary-btn text-center">
-                        <form action="{% url 'export_stats_csv' %}" method="get" style="display: inline;">
+                        <form action="{% url 'export_csv' %}" method="get" style="display: inline;">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-primary btn-lg">Export URLs</button>
                         </form>
