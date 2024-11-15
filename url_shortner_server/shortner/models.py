@@ -52,6 +52,10 @@ class LinkAccess(models.Model):
     device_type = models.CharField(max_length=64)
     accessed_at = models.DateTimeField(auto_now_add=True)
 
+    city = models.CharField(max_length=128, default="Unknown")
+    region = models.CharField(max_length=128, default="Unknown")
+    country = models.CharField(max_length=128, default="Unknown")
+
     def __str__(self):
         return f"Accessed {self.link} on {self.accessed_at}"
 
