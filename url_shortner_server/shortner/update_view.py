@@ -1,10 +1,12 @@
 """update_view module defines the UpdateView view"""
 
+import json
+
 from django.http.request import HttpRequest
 from django.http.response import HttpResponse
 from django.views.generic import View
+
 from shortner.models import Link
-import json
 
 
 class UpdateView(View):

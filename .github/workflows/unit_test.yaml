@@ -10,12 +10,15 @@ on:
     - cron: '18 18 * * 2'
 jobs:
   Unit-Tests:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - run: echo "The job was triggered on branch ${{ github.ref }}."
 
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Install MySQL development package
+        run: sudo apt-get install -y libmysqlclient-dev
 
       - name: Setup python
         uses: actions/setup-python@v5

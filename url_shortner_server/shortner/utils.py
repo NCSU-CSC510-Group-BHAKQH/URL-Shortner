@@ -3,12 +3,12 @@
 from os import getenv
 import re
 from urllib.parse import urlparse
-from typing import Tuple
 
-from shortner.models import Link
 from dotenv import load_dotenv
 from vt import Client
 from vt.error import APIError
+
+from shortner.models import Link
 
 
 def do_security_check(link: Link) -> None:

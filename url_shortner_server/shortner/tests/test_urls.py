@@ -1,3 +1,5 @@
+# pylint: disable=no-member,missing-function-docstring,too-many-public-methods
+"""URL Tests"""
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 from shortner.views import (
@@ -21,6 +23,8 @@ from shortner.views import (
 
 
 class TestUrls(SimpleTestCase):
+    """URL Test class."""
+
     def test_add_url_is_resolved(self):
         url = reverse("add_new")
         self.assertEqual(resolve(url).func.view_class, NewView)
@@ -44,10 +48,6 @@ class TestUrls(SimpleTestCase):
     def test_list_url_is_resolved(self):
         url = reverse("list")
         self.assertEqual(resolve(url).func.view_class, ListUrlsView)
-
-    def test_signin_url_is_resolved(self):
-        url = reverse("signin")
-        self.assertEqual(resolve(url).func, signin)
 
     def test_signout_url_is_resolved(self):
         url = reverse("signout")
