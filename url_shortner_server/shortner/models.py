@@ -1,3 +1,4 @@
+# pylint: disable=no-member
 """Models module deals with models representing entities in the application"""
 
 import json
@@ -44,7 +45,10 @@ class Link(models.Model):
             }
         )
 
+
 class LinkAccess(models.Model):
+    """Model for holding stats about link accesses."""
+
     link = models.ForeignKey(Link, on_delete=models.CASCADE, related_name="accesses")
     ip_address = models.CharField(max_length=45)
     user_agent = models.CharField(max_length=512)
@@ -58,6 +62,7 @@ class LinkAccess(models.Model):
 
     def __str__(self):
         return f"Accessed {self.link} on {self.accessed_at}"
+
 
 def give_link_by_username_long_url(username, long_url):
     """filter by username and long url"""

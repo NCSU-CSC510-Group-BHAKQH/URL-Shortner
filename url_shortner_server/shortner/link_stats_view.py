@@ -1,10 +1,11 @@
+# pylint: disable=no-member
+"""More indepth stats view for links."""
 import csv
+from datetime import datetime
 from django.http import HttpResponse
 from django.http.request import HttpRequest
 from django.views.generic import View
 from django.shortcuts import redirect, render, get_object_or_404
-from django.urls import reverse
-from datetime import datetime
 from shortner.models import Link, LinkAccess
 
 
@@ -24,7 +25,7 @@ class LinkStatsView(View):
         link = get_object_or_404(Link, special_code=special_code, username=username)
 
         # Fetch all accesses for this link
-        accesses = LinkAccess.objects.filter(link=link).order_by('-accessed_at')
+        accesses = LinkAccess.objects.filter(link=link).order_by("-accessed_at")
 
         # Prepare context for the template
         context = {
@@ -34,7 +35,9 @@ class LinkStatsView(View):
 
         return render(request, "homepages/linkstats.html", context=context)
 
-    def export_stats_csv(self, request: HttpRequest, special_code):
+    def export_stats_csv(
+        self, request: HttpRequest, special_code
+    ):  # pylint: disable=too-many-locals
         """Exports link statistics as CSV with date and time in filename"""
         username = request.session.get("username", "")
         if not username:
@@ -44,7 +47,7 @@ class LinkStatsView(View):
         link = get_object_or_404(Link, special_code=special_code, username=username)
 
         # Fetch all accesses for this link
-        accesses = LinkAccess.objects.filter(link=link).order_by('-accessed_at')
+        accesses = LinkAccess.objects.filter(link=link).order_by("-accessed_at")
 
         # Generate filename with current date and time
         current_datetime = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -54,7 +57,9 @@ class LinkStatsView(View):
         response["Content-Disposition"] = f'attachment; filename="{filename}"'
 
         writer = csv.writer(response)
-        writer.writerow(["Access Time", "Device Type", "Browser", "City", "Region", "Country"])
+        writer.writerow(
+            ["Access Time", "Device Type", "Browser", "City", "Region", "Country"]
+        )
 
         for access in accesses:
 

@@ -6,23 +6,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('shortner', '0006_linkaccess'),
+        ("shortner", "0006_linkaccess"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='linkaccess',
-            name='city',
-            field=models.CharField(default='Unknown', max_length=128),
+            model_name="linkaccess",
+            name="city",
+            field=models.CharField(default="Unknown", max_length=128),
         ),
         migrations.AddField(
-            model_name='linkaccess',
-            name='country',
-            field=models.CharField(default='Unknown', max_length=128),
+            model_name="linkaccess",
+            name="country",
+            field=models.CharField(default="Unknown", max_length=128),
         ),
         migrations.AddField(
-            model_name='linkaccess',
-            name='region',
-            field=models.CharField(default='Unknown', max_length=128),
+            model_name="linkaccess",
+            name="region",
+            field=models.CharField(default="Unknown", max_length=128),
         ),
     ]

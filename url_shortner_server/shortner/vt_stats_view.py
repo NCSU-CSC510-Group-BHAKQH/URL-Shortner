@@ -1,3 +1,4 @@
+# pylint: disable=no-member
 """
 vt_stats_view.py
 ~~~~~~~~~~~~~~~~
@@ -15,6 +16,7 @@ class VirusTotalStatsView(View):
     """Shows the VirusTotal stats for a given link."""
 
     def get(self, request: HttpRequest):
+        """Gets the VT stats view page."""
         username = request.session.get("username", "")
         long_url = request.GET.get("long_url")
 

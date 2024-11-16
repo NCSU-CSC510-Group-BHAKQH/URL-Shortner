@@ -1,12 +1,18 @@
-from django.test import TestCase, Client
-from django.urls import reverse
-from django.contrib.auth.models import User
-from shortner.models import Link
+# pylint: disable=no-member,missing-function-docstring,too-many-public-methods
+"""Django Views Tests."""
 import csv
 import io
 
+from django.test import TestCase, Client
+from django.urls import reverse
+from django.contrib.auth.models import User
+
+from shortner.models import Link
+
 
 class TestViews(TestCase):
+    """Views test class"""
+
     def setUp(self):
         self.client = Client()
         self.add_new_url = reverse("add_new")
@@ -300,7 +306,7 @@ class TestViews(TestCase):
                 "username": username,
                 "pass1": "mypassword",
                 "pass2": "mypassword",
-                "fname": username.split("_")[0].capitalize(),
+                "fname": username.split("_", maxsplit=1)[0].capitalize(),
                 "lname": username.split("_")[1].capitalize(),
                 "email": email,
             }

@@ -1,11 +1,13 @@
+# pylint: disable=no-member
+"""Django view for the link statistics page."""
 import csv
+from datetime import datetime
 from django.http import HttpResponse
 from django.http.request import HttpRequest
 from django.views.generic import View
 from django.shortcuts import redirect, render
 from django.urls import reverse
-from datetime import datetime
-from shortner.models import Link, LinkAccess
+from shortner.models import Link
 
 
 class StatsView(View):

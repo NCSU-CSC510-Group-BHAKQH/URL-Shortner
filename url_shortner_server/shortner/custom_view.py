@@ -1,9 +1,10 @@
 """new_view module defines the NewView view"""
 
+import json
+
 from django.http.request import HttpRequest
 from django.http.response import HttpResponse
 from django.views.generic import View
-import json
 
 from shortner.models import Link
 

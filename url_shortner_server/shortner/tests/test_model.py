@@ -1,9 +1,13 @@
+"""Django Model tests"""
+
+# pylint: disable=no-member,missing-function-docstring,too-many-public-methods
 from unittest import TestCase
-from shortner.models import Link
 import uuid
+from shortner.models import Link
 
 
 class TestModel(TestCase):
+    """Class for model tests."""
 
     def test_create_new_entry_1(self):
         unique_special_code = str(uuid.uuid4())

@@ -7,20 +7,35 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('shortner', '0005_remove_link_virus_total_analysis_id_and_more'),
+        ("shortner", "0005_remove_link_virus_total_analysis_id_and_more"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='LinkAccess',
+            name="LinkAccess",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('ip_address', models.CharField(max_length=45)),
-                ('user_agent', models.CharField(max_length=512)),
-                ('browser', models.CharField(max_length=64)),
-                ('device_type', models.CharField(max_length=64)),
-                ('accessed_at', models.DateTimeField(auto_now_add=True)),
-                ('link', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='accesses', to='shortner.link')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("ip_address", models.CharField(max_length=45)),
+                ("user_agent", models.CharField(max_length=512)),
+                ("browser", models.CharField(max_length=64)),
+                ("device_type", models.CharField(max_length=64)),
+                ("accessed_at", models.DateTimeField(auto_now_add=True)),
+                (
+                    "link",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="accesses",
+                        to="shortner.link",
+                    ),
+                ),
             ],
         ),
     ]
