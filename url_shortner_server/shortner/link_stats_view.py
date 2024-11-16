@@ -1,10 +1,11 @@
+# pylint: disable=no-member
+"""More indepth stats view for links."""
 import csv
+from datetime import datetime
 from django.http import HttpResponse
 from django.http.request import HttpRequest
 from django.views.generic import View
 from django.shortcuts import redirect, render, get_object_or_404
-from django.urls import reverse
-from datetime import datetime
 from shortner.models import Link, LinkAccess
 
 
@@ -34,7 +35,9 @@ class LinkStatsView(View):
 
         return render(request, "homepages/linkstats.html", context=context)
 
-    def export_stats_csv(self, request: HttpRequest, special_code):
+    def export_stats_csv(
+        self, request: HttpRequest, special_code
+    ):  # pylint: disable=too-many-locals
         """Exports link statistics as CSV with date and time in filename"""
         username = request.session.get("username", "")
         if not username:

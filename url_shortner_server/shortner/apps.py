@@ -1,3 +1,5 @@
+"""Future application classes."""
+
 from django.apps import AppConfig
 
 

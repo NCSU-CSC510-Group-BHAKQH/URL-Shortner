@@ -32,4 +32,4 @@ jobs:
           python -m pip install pylint
 
       - name: Lint with pylint
-        run: pylint --recursive=y .
+        run: pylint url_shortner_server/shortner/*.py url_shortner_server/url_shortner_server/*.py

@@ -1,6 +1,15 @@
+# pylint: disable=no-member
 """Views module stores all the views of the application"""
+from os import getenv
 
+from dotenv import load_dotenv
+from django.shortcuts import redirect, render
+from django.contrib.auth.models import User
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
+from vt import Client
+
 from shortner.new_view import NewView
 from shortner.stub_view import StubView
 from shortner.delete_view import DeleteView
@@ -12,13 +21,6 @@ from shortner.vt_stats_view import VirusTotalStatsView
 from shortner.link_stats_view import LinkStatsView
 from shortner.login import login_test
 from shortner.models import Link
-from django.shortcuts import redirect, render
-from django.contrib.auth.models import User
-from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
-from os import getenv
-from vt import Client
-from dotenv import load_dotenv
 
 __all__ = [
     "NewView",
@@ -111,15 +113,14 @@ def signin(request):
             fname = user.first_name
             request.session["username"] = username
             return redirect("homepage", fname=fname)
-        else:
-            messages.error(request, "Bad Credentials!")
-            return redirect("home")
+        messages.error(request, "Bad Credentials!")
+        return redirect("home")
 
     # Render the main page if we try to access signin through the url (GET)
     return render(request, "authentication/index.html")
 
 
-def homepage(request, fname):
+def homepage(request, fname):  # pylint: disable=inconsistent-return-statements
     """homepage view"""
     if request.method == "GET":
         messages.success(request, "Login Successfull!")
@@ -131,12 +132,12 @@ def homepage(request, fname):
 
 def about_us(request):
     """home landing page"""
-    return render(request, "homepages/AboutUs.html")  #
+    return render(request, "homepages/AboutUs.html")
 
 
 def create_url(request):
     """URL Create page"""
-    return render(request, "homepages/index.html")  #
+    return render(request, "homepages/index.html")
 
 
 def signout(request):

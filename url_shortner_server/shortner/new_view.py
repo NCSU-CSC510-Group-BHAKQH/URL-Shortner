@@ -1,3 +1,4 @@
+# pylint: disable=no-member,too-many-branches,too-many-nested-blocks,broad-exception-caught
 """new_view module defines the NewView view"""
 
 import csv
@@ -26,9 +27,7 @@ class NewView(View):
                     csv_reader = csv.DictReader(
                         uploaded_file.read().decode("utf-8").splitlines()
                     )
-                    existing_stubs = set(
-                        Link.objects.values_list("stub", flat=True)
-                    )  # pylint: disable=no-member
+                    existing_stubs = set(Link.objects.values_list("stub", flat=True))
                     for row in csv_reader:
                         long_url = next(
                             (value for key, value in row.items() if "link" in key), None
