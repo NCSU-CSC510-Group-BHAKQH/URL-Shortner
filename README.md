@@ -1,13 +1,11 @@
-# URL-Shortner 🔗
-## Check the develop branch for the latest features - [develop branch](https://github.com/fantastic-riddles/URL-Shortner/tree/develop)
-
-[![GitHub Release](https://img.shields.io/github/v/release/fantastic-riddles/URL-Shortner?style=plastic)](https://github.com/fantastic-riddles/URL-Shortner/releases)
-[![GitHub Tag](https://img.shields.io/github/v/tag/fantastic-riddles/URL-Shortner?style=plastic)](https://github.com/fantastic-riddles/URL-Shortner/releases)
-[![GitHub forks](https://img.shields.io/github/forks/fantastic-riddles/URL-Shortner)](https://github.com/fantastic-riddles/URL-Shortner/network)
-[![GitHub stars](https://img.shields.io/github/stars/fantastic-riddles/URL-Shortner)](https://github.com/fantastic-riddles/URL-Shortner/stargazers)
-[![GitHub contributors](https://img.shields.io/github/contributors/fantastic-riddles/URL-Shortner)](https://github.com/fantastic-riddles/URL-Shortner/graphs/contributors)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/fantastic-riddles/URL-Shortner)](https://github.com/fantastic-riddles/URL-Shortner/graphs/commit-activity)
-[![GitHub license](https://img.shields.io/github/license/fantastic-riddles/URL-Shortner)](https://github.com/fantastic-riddles/URL-Shortner/blob/develop/LICENSE)
+# URL-Shortner - Group 15 Project 3 Fall 2024 🔗
+[![GitHub Release](https://img.shields.io/github/v/release/NCSU-CSC510-Group-BHAKQH/URL-Shortner?style=plastic)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/releases)
+[![GitHub Tag](https://img.shields.io/github/v/tag/NCSU-CSC510-Group-BHAKQH/URL-Shortner?style=plastic)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/releases)
+[![GitHub forks](https://img.shields.io/github/forks/NCSU-CSC510-Group-BHAKQH/URL-Shortner)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/network)
+[![GitHub stars](https://img.shields.io/github/stars/NCSU-CSC510-Group-BHAKQH/URL-Shortner)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/stargazers)
+[![GitHub contributors](https://img.shields.io/github/contributors/NCSU-CSC510-Group-BHAKQH/URL-Shortner)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/graphs/contributors)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/NCSU-CSC510-Group-BHAKQH/URL-Shortner)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/graphs/commit-activity)
+[![GitHub license](https://img.shields.io/github/license/NCSU-CSC510-Group-BHAKQH/URL-Shortner)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/blob/develop/LICENSE)
 
 <!-- [![Build](https://github.com/fantastic-riddles/URL-Shortner/actions/workflows/unit_test.yaml/badge.svg)](https://github.com/fantastic-riddles/URL-Shortner/actions/workflows/unit_test.yaml) -->
 
