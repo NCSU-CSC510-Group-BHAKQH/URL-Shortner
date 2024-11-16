@@ -44,6 +44,20 @@ class Link(models.Model):
             }
         )
 
+class LinkAccess(models.Model):
+    link = models.ForeignKey(Link, on_delete=models.CASCADE, related_name="accesses")
+    ip_address = models.CharField(max_length=45)
+    user_agent = models.CharField(max_length=512)
+    browser = models.CharField(max_length=64)
+    device_type = models.CharField(max_length=64)
+    accessed_at = models.DateTimeField(auto_now_add=True)
+
+    city = models.CharField(max_length=128, default="Unknown")
+    region = models.CharField(max_length=128, default="Unknown")
+    country = models.CharField(max_length=128, default="Unknown")
+
+    def __str__(self):
+        return f"Accessed {self.link} on {self.accessed_at}"
 
 def give_link_by_username_long_url(username, long_url):
     """filter by username and long url"""

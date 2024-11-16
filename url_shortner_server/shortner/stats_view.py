@@ -5,7 +5,7 @@ from django.views.generic import View
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from datetime import datetime
-from shortner.models import Link
+from shortner.models import Link, LinkAccess
 
 
 class StatsView(View):
@@ -55,7 +55,7 @@ class StatsView(View):
 
         # Generate filename with current date and time
         current_datetime = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"link_statistics_{current_datetime}.csv"
+        filename = f"all_url_statistics_{current_datetime}.csv"
 
         response = HttpResponse(content_type="text/csv")
         response["Content-Disposition"] = f'attachment; filename="{filename}"'
@@ -64,6 +64,7 @@ class StatsView(View):
         writer.writerow(["Long URL", "Short URL", "CTR"])
 
         for link_obj in list_of_links:
+
             writer.writerow(
                 [
                     link_obj.long_url,

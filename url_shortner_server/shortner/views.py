@@ -9,6 +9,7 @@ from shortner.update_view import UpdateView
 from shortner.custom_view import CustomView
 from shortner.stats_view import StatsView
 from shortner.vt_stats_view import VirusTotalStatsView
+from shortner.link_stats_view import LinkStatsView
 from shortner.login import login_test
 from shortner.models import Link
 from django.shortcuts import redirect, render
@@ -30,6 +31,7 @@ __all__ = [
     "StatsView",
     "delete_all_urls",
     "VirusTotalStatsView",
+    "LinkStatsView",
 ]
 
 
