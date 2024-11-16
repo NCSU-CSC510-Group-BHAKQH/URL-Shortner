@@ -24,7 +24,7 @@ class LinkStatsView(View):
         link = get_object_or_404(Link, special_code=special_code, username=username)
 
         # Fetch all accesses for this link
-        accesses = LinkAccess.objects.filter(link=link).order_by('-accessed_at')
+        accesses = LinkAccess.objects.filter(link=link).order_by("-accessed_at")
 
         # Prepare context for the template
         context = {
@@ -44,7 +44,7 @@ class LinkStatsView(View):
         link = get_object_or_404(Link, special_code=special_code, username=username)
 
         # Fetch all accesses for this link
-        accesses = LinkAccess.objects.filter(link=link).order_by('-accessed_at')
+        accesses = LinkAccess.objects.filter(link=link).order_by("-accessed_at")
 
         # Generate filename with current date and time
         current_datetime = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -54,7 +54,9 @@ class LinkStatsView(View):
         response["Content-Disposition"] = f'attachment; filename="{filename}"'
 
         writer = csv.writer(response)
-        writer.writerow(["Access Time", "Device Type", "Browser", "City", "Region", "Country"])
+        writer.writerow(
+            ["Access Time", "Device Type", "Browser", "City", "Region", "Country"]
+        )
 
         for access in accesses:
 

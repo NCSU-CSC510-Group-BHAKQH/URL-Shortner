@@ -44,6 +44,7 @@ class Link(models.Model):
             }
         )
 
+
 class LinkAccess(models.Model):
     link = models.ForeignKey(Link, on_delete=models.CASCADE, related_name="accesses")
     ip_address = models.CharField(max_length=45)
@@ -58,6 +59,7 @@ class LinkAccess(models.Model):
 
     def __str__(self):
         return f"Accessed {self.link} on {self.accessed_at}"
+
 
 def give_link_by_username_long_url(username, long_url):
     """filter by username and long url"""
