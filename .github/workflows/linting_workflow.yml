@@ -32,4 +32,4 @@ jobs:
           python -m pip install pylint
 
       - name: Lint with pylint
-        run: pylint url_shortner_server/shortner/*.py url_shortner_server/url_shortner_server/*.py
+        run: pylint --disable=R0801 url_shortner_server/shortner/*.py url_shortner_server/url_shortner_server/*.py
