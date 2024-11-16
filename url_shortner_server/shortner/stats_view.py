@@ -55,7 +55,7 @@ class StatsView(View):
 
         # Generate filename with current date and time
         current_datetime = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"link_statistics_{current_datetime}.csv"
+        filename = f"all_url_statistics_{current_datetime}.csv"
 
         response = HttpResponse(content_type="text/csv")
         response["Content-Disposition"] = f'attachment; filename="{filename}"'
