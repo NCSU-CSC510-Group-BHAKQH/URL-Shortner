@@ -55,27 +55,21 @@ class StatsView(View):
 
         # Generate filename with current date and time
         current_datetime = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"link_statistics_{current_datetime}.csv"
+        filename = f"all_url_statistics_{current_datetime}.csv"
 
         response = HttpResponse(content_type="text/csv")
         response["Content-Disposition"] = f'attachment; filename="{filename}"'
 
         writer = csv.writer(response)
-        writer.writerow(["Long URL", "Short URL", "CTR", "Device Type", "Browser"])
+        writer.writerow(["Long URL", "Short URL", "CTR"])
 
         for link_obj in list_of_links:
-            latest_access = LinkAccess.objects.filter(link=link_obj).order_by('-accessed_at').first()
-
-            device_type = latest_access.device_type if latest_access else "Unknown"
-            browser = latest_access.browser if latest_access else "Unknown"
 
             writer.writerow(
                 [
                     link_obj.long_url,
                     request.build_absolute_uri("/") + "stub/" + link_obj.stub,
                     link_obj.ctr,
-                    device_type,
-                    browser
                 ]
             )
 

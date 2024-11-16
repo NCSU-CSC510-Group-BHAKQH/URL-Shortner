@@ -150,7 +150,7 @@ class TestViews(TestCase):
         self.assertEqual(response["Content-Type"], "text/csv")
         self.assertTrue(
             response["Content-Disposition"].startswith(
-                'attachment; filename="link_statistics_'
+                'attachment; filename="all_url_statistics_'
             )
         )
 
@@ -182,7 +182,7 @@ class TestViews(TestCase):
         rows = list(csv_reader)
 
         self.assertEqual(len(rows), 2)
-        self.assertEqual(rows[0], ["Long URL", "Short URL", "CTR", "Device Type", "Browser"])
+        self.assertEqual(rows[0], ["Long URL", "Short URL", "CTR"])
 
     def test_export_csv_multiple_links(self):
         self.client.post(
@@ -341,7 +341,7 @@ class TestViews(TestCase):
 
         content_disposition = response["Content-Disposition"]
         self.assertTrue(
-            content_disposition.startswith('attachment; filename="link_statistics_')
+            content_disposition.startswith('attachment; filename="all_url_statistics_')
         )
 
     def test_stats_view_ctr_update(self):
