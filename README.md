@@ -97,7 +97,7 @@ pip install -r requirements.txt
 ```
 
 #### 3. Sign up for VirusTotal and retrieve an API key
-  1. Sign up [here](https://www.virustotal.com/gui/join-us). We _**strongly**_ recommend signing up with your GitHub account.
+  1. Sign up [here]([https://www.virustotal.com/gui/join-us](https://ipinfo.io/signup)). We _**strongly**_ recommend signing up with your GitHub account.
   2. Follow [these instructions](https://docs.virustotal.com/docs/api-overview) to find your API key.
   3. Create a `.env` file in the `URL-Shortner/url_shortner_server/shortner` directory.
     
@@ -106,7 +106,15 @@ pip install -r requirements.txt
 
     VIRUSTOTAL_API_KEY=...
 
-#### 3. Create a MySQL database on your system
+#### 4. Sign up for IP Info and retrieve an Access Token
+  1. Sign up [here](https://www.virustotal.com/gui/join-us). We _**strongly**_ recommend signing up with your GitHub account.
+  2. Follow [this link](https://ipinfo.io/account/token) to find your Access Token.
+  3. Update the `.env` file in the `URL-Shortner/url_shortner_server/shortner` directory.
+  4. Paste your Access Token in like so:
+
+    IPINFO_API_TOKEN=...
+
+#### 5. Create a MySQL database on your system
 ```
 # Login to MySQL
 sudo mysql -u root -p
@@ -116,13 +124,13 @@ GRANT ALL PRIVILEGES ON urlshortner.* TO 'root'@'127.0.0.1';
 FLUSH PRIVILEGES;
 ```
 
-#### 4. Run Migrations and Start server
+#### 6. Run Migrations and Start server
 ```
 python3 manage.py migrate
 python3 manage.py runserver
 ```
 
-#### 3. Navigate to http://127.0.0.1:8000/
+#### 7. Navigate to http://127.0.0.1:8000/
 
 You can then go ahead and sign up by giving basic details. We do not ask for credit cards, or any other PII as your data is precious!
 
