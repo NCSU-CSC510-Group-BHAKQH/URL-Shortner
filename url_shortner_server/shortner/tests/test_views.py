@@ -306,7 +306,7 @@ class TestViews(TestCase):
                 "username": username,
                 "pass1": "mypassword",
                 "pass2": "mypassword",
-                "fname": username.split("_",maxsplit=1)[0].capitalize(),
+                "fname": username.split("_", maxsplit=1)[0].capitalize(),
                 "lname": username.split("_")[1].capitalize(),
                 "email": email,
             }
