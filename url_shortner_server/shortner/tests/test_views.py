@@ -341,7 +341,7 @@ class TestViews(TestCase):
 
         content_disposition = response["Content-Disposition"]
         self.assertTrue(
-            content_disposition.startswith('attachment; filename="link_statistics_')
+            content_disposition.startswith('attachment; filename="all_url_statistics_')
         )
 
     def test_stats_view_ctr_update(self):
