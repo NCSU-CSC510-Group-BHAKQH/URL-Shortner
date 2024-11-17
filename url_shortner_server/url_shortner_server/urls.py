@@ -36,7 +36,7 @@ from shortner.views import (
     create_url,
     vt_stats_full,
 )
-from shortner.views import login_test, ListUrlsView, homepage, StatsView, USMapView
+from shortner.views import login_test, ListUrlsView, homepage, StatsView
 
 urlpatterns = [
     path("admin/", admin.site.urls, name="admin"),
