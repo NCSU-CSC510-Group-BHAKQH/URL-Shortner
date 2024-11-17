@@ -30,8 +30,8 @@ class StubView(View):
             user_agent = parse(user_agent_string)
             device_family = "PC" if user_agent.is_pc else user_agent.device.family
 
-            #ip_address = self.request.META.get("REMOTE_ADDR", "")
-            ip_address = "172.90.137.144"
+            ip_address = self.request.META.get("REMOTE_ADDR", "")
+            #ip_address = "172.90.137.144"
             if ip_address == "127.0.0.1":
                 city, region, country, latitude, longitude = (
                     "Localhost",
