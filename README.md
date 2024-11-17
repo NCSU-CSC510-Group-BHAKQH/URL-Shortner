@@ -117,8 +117,8 @@ pip install -r requirements.txt
 # Login to MySQL
 sudo mysql -u root -p
 CREATE DATABASE urlshortner;
-CREATE USER 'root'@'127.0.0.1' IDENTIFIED BY 'admin123';
-GRANT ALL PRIVILEGES ON urlshortner.* TO 'root'@'127.0.0.1';
+CREATE USER 'root'@'localhost' IDENTIFIED BY 'admin123';
+GRANT ALL PRIVILEGES ON urlshortner.* TO 'root'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
@@ -151,6 +151,11 @@ You no longer need to remember the special code that our beloved previous contri
 can always manage your URLs!
 
 ---
+
+## Render Deployment
+This website is now hosted on render! Each commit to the main branch will redeploy the service.
+
+Visit at [https://url-shortner-srt8.onrender.com](https://url-shortner-srt8.onrender.com)
 
 ## We love our contributors ❤️❤️
 

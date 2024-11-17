@@ -10,12 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print(BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -26,7 +25,12 @@ SECRET_KEY = "django-insecure-=dogutq%d--x-&l%5al*f7i^rdg&0_qvtot^s9_#4f4vy1zg@o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["sef22group5.pythonanywhere.com", "127.0.0.1"]
+ALLOWED_HOSTS = [
+    "sef22group5.pythonanywhere.com",
+    "127.0.0.1",
+    "localhost",
+    "url-shortner-srt8.onrender.com",
+]
 
 # Application definition
 
@@ -60,7 +64,7 @@ ROOT_URLCONF = "url_shortner_server.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": ["templates"],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -83,14 +87,10 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "urlshortner",
-        # "USER": "djangouser",
-        # "PASSWORD": "password",
         "USER": "root",
         "PASSWORD": "admin123",
-        "HOST": "127.0.0.1",
+        "HOST": "localhost",
         "PORT": "3306",
-        # "HOST": "localhost",
-        # "PORT": "",
     }
 }
 
