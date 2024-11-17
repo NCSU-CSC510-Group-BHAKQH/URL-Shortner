@@ -152,6 +152,11 @@ can always manage your URLs!
 
 ---
 
+## Render Deployment
+This website is now hosted on render! Each commit to the main branch will redeploy the service.
+
+Visit at [https://url-shortner-srt8.onrender.com](https://url-shortner-srt8.onrender.com)
+
 ## We love our contributors ❤️❤️
 
 Make a [pull request](https://github.com/fantastic-riddles/URL-Shortner/compare) to help contribute.
