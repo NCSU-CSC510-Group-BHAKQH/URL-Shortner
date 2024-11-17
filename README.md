@@ -117,8 +117,8 @@ pip install -r requirements.txt
 # Login to MySQL
 sudo mysql -u root -p
 CREATE DATABASE urlshortner;
-CREATE USER 'root'@'127.0.0.1' IDENTIFIED BY 'admin123';
-GRANT ALL PRIVILEGES ON urlshortner.* TO 'root'@'127.0.0.1';
+CREATE USER 'root'@'localhost' IDENTIFIED BY 'admin123';
+GRANT ALL PRIVILEGES ON urlshortner.* TO 'root'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
