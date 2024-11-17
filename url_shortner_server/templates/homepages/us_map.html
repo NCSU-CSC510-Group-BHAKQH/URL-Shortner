@@ -1,0 +1,230 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Management</title>
+
+  <!-- Preconnect for Fonts and Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <link rel="stylesheet" href="{% static 'homemain.css' %}">
+  <link rel="stylesheet" href="{% static 'colors.css' %}">
+
+  <!-- Leaflet CSS for the Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.1/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.1/dist/MarkerCluster.Default.css" />
+
+  <!-- Inline CSS for Sticky Footer and Map -->
+  <style>
+    /* Global Styles */
+    body, html {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: #444;
+      background-color: #fafafa;
+      padding-bottom: 0px;
+    }
+    main {
+      flex: 1;
+    }
+
+    /* Header and Navbar Styling */
+    .header {
+      background: #ffffff;
+      padding: 1.5rem 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease;
+    }
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      color: #333;
+      margin: 0;
+      font-size: 2em;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .nav-links {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+    .nav-links ul {
+        list-style: none;
+        display: flex;
+        gap: 3em;
+        margin: 0;
+        padding: 0;
+    }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 3em;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar li a {
+      color: #555;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      transition: color 0.3s;
+    }
+    .navbar li a:hover {
+      color: #ff6347;
+      text-decoration: underline;
+    }
+
+    .sign-out-container {
+    margin-left: auto;
+  }
+
+  .sign-out-container a {
+    color: #333;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+  }
+
+  .sign-out-container a:hover {
+    color: #ff6347;
+    }
+
+    /* Footer Styling */
+    .footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: auto;
+    }
+    .footer span {
+      color: #e25555;
+    }
+
+    /* Map Styling */
+    #map {
+      height: 500px;
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    /* Scroll to Top Button */
+    .scroll-top {
+      position: fixed;
+      bottom: 2em;
+      right: 2em;
+      background: #ff6347;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s ease;
+      z-index: 1000;
+    }
+    .scroll-top:hover {
+      background: rgba(255, 99, 71, 0.9);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+       <h1>Txtly</h1>
+      <nav id="navbar" class="navbar">
+        <div class="nav-links">
+            <ul>
+                <li><a href="{% url 'about_us' %}">Home</a></li>
+                <li><a href="{% url 'list' %}">Manage Your Urls</a></li>
+                <li><a href="{% url 'stats' %}">Statistics</a></li>
+            </ul>
+        </div>
+        <div class="sign-out-container">
+            <a href="/signout">Sign Out</a>
+        </div>
+    </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="event-schedule-area bg-color pad100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Map View</h2>
+                    <div id="map"></div>
+                    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+                    <script src="https://unpkg.com/leaflet.markercluster@1.5.1/dist/leaflet.markercluster.js"></script>
+
+                    <script>
+                      var map = L.map('map').setView([39.8283, -98.5795], 4); // Initialize map with coordinates and zoom level
+
+                      // Add the tile layer to the map (OpenStreetMap)
+                      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                      }).addTo(map);
+
+                      // Create a marker cluster group (for large datasets)
+                        var markers = L.markerClusterGroup();
+
+                        {% for access in access_data %}
+                            {% if access.latitude and access.longitude %}
+                                var lat = {{ access.latitude }};
+                                var lng = {{ access.longitude }};
+                                var city = "{{ access.city }}";
+                                var region = "{{ access.region }}";
+
+                                // Create a marker for each location
+                                var marker = L.marker([lat, lng]);
+
+                                // Add a popup with city and region information
+                                marker.bindPopup("<b>" + city + "</b><br>" + region);
+
+                                // Add marker to the cluster group
+                                markers.addLayer(marker);
+                            {% endif %}
+                        {% endfor %}
+
+                        // Add all markers to the map
+                        map.addLayer(markers);
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+  <!-- Scroll to Top Button -->
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="fa fa-arrow-up"></i></a>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <p>Made with <span>&hearts;</span> by Team 21, and 16</p>
+    </div>
+  </footer>
+</body>
+</html>

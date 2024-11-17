@@ -19,6 +19,7 @@ from shortner.custom_view import CustomView
 from shortner.stats_view import StatsView
 from shortner.vt_stats_view import VirusTotalStatsView
 from shortner.link_stats_view import LinkStatsView
+from shortner.map_view import USMapView
 from shortner.login import login_test
 from shortner.models import Link
 
@@ -34,6 +35,7 @@ __all__ = [
     "delete_all_urls",
     "VirusTotalStatsView",
     "LinkStatsView",
+    "USMapView",
 ]
 
 

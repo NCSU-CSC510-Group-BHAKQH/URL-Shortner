@@ -24,6 +24,7 @@ from shortner.views import (
     delete_all_urls,
     VirusTotalStatsView,
     LinkStatsView,
+    USMapView,
 )
 from shortner.views import (
     CustomView,
@@ -35,7 +36,7 @@ from shortner.views import (
     create_url,
     vt_stats_full,
 )
-from shortner.views import login_test, ListUrlsView, homepage, StatsView
+from shortner.views import login_test, ListUrlsView, homepage, StatsView, USMapView
 
 urlpatterns = [
     path("admin/", admin.site.urls, name="admin"),
@@ -66,4 +67,5 @@ urlpatterns = [
         LinkStatsView.as_view(),
         name="export_stats_csv",
     ),
+    path('us-map/<str:link_stub>', USMapView.as_view(), name="us_map"),
 ]

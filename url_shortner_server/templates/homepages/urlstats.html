@@ -260,6 +260,7 @@
                                             <th scope="col">Stub</th>
                                             <th scope="col">Count</th>
                                             <th scope="col">Statistics</th>
+                                            <th scope="col">Map View</th>
                                             <th scope="col" class="text-center">Actions</th>
                                         </tr>
                                     </thead>
@@ -287,6 +288,11 @@
                                             <td class="text-center">
                                                 <div class="action-btns">
                                                     <a href="{% url 'link_stats' link.special_code %}" class="btn btn-secondary">Stats</a>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="action-btns">
+                                                    <a href="{% url 'us_map' link_stub=link.special_code %}" class="btn btn-warning">View Map</a>
                                                 </div>
                                             </td>
                                             <td class="text-center">
