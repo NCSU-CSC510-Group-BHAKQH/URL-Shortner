@@ -31,15 +31,25 @@ class StubView(View):
             device_family = "PC" if user_agent.is_pc else user_agent.device.family
 
             ip_address = self.request.META.get("REMOTE_ADDR", "")
-            # ip_address = "71.69.163.169"
+            #ip_address = "172.90.137.144"
             if ip_address == "127.0.0.1":
-                city, region, country = "Localhost", "Localhost", "Localhost"
+                city, region, country, latitude, longitude = (
+                    "Localhost",
+                    "Localhost",
+                    "Localhost",
+                    None,
+                    None,
+                )
             else:
                 location = StubView.get_location(ip_address)
                 city = location.get("city", "Unknown")
                 region = location.get("region", "Unknown")
                 country = location.get("country", "Unknown")
-
+                loc = location.get("loc", None)
+                latitude, longitude = (
+                    map(float, loc.split(",")) if loc else (None, None)
+                )
+            print(latitude, longitude)
             LinkAccess.objects.create(
                 link=link,
                 ip_address=ip_address,
@@ -49,6 +59,8 @@ class StubView(View):
                 city=city,
                 region=region,
                 country=country,
+                latitude=latitude,
+                longitude=longitude,
             )
 
             return HttpResponseRedirect(link.long_url)

@@ -24,6 +24,7 @@ from shortner.views import (
     delete_all_urls,
     VirusTotalStatsView,
     LinkStatsView,
+    USMapView,
 )
 from shortner.views import (
     CustomView,
@@ -66,4 +67,5 @@ urlpatterns = [
         LinkStatsView.as_view(),
         name="export_stats_csv",
     ),
+    path('us-map/<str:link_stub>', USMapView.as_view(), name="us_map"),
 ]
