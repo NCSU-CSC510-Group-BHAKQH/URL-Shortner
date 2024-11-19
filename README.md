@@ -150,9 +150,21 @@ can always manage your URLs!
 ---
 
 ## Render Deployment
-This website is now hosted on render! Each commit to the main branch will redeploy the service.
+This website is now hosted on Render! Each commit to the main branch will redeploy the service.
 
 Visit at [https://url-shortner-srt8.onrender.com](https://url-shortner-srt8.onrender.com)
+
+## Device and Browser Tracking
+The system now tracks devices and browsers that access the short URLs created using our URL Shortener. This helps enhance the analytics by tracking users' devices and browsers, providing deeper insights into how and where links are accessed.
+
+## Geo-Location Details
+The information about the city, region, and country from which the short URLs are accessed is now recorded using Geo-Location tracking. IPInfo API was used to gather location details from the IP address of the device accessing the link. This introduces location-based tracking within the analytics dashboard to help users better understand geographic engagement trends for their links. 
+
+## New 'Map View' Feature
+A map of the USA has been integrated, displaying markers at all the locations where a specific short URL has been accessed. Leaflet CSS was used to introduce a Map to our site.
+
+## CSV file for Stats
+A new CSV file can be exported with the newly acquired device, browser, and geo-location details for each short URL created. This is in addition to the existing CSV file with the count of 'hits' for each short URL. 
 
 ## We love our contributors ❤️❤️
 
