@@ -160,11 +160,17 @@ The system now tracks devices and browsers that access the short URLs created us
 ## Geo-Location Details
 The information about the city, region, and country from which the short URLs are accessed is now recorded using Geo-Location tracking. IPInfo API was used to gather location details from the IP address of the device accessing the link. This introduces location-based tracking within the analytics dashboard to help users better understand geographic engagement trends for their links. 
 
+![Location and Device Tracking](./device_browser.png)
+
 ## New 'Map View' Feature
 A map of the USA has been integrated, displaying markers at all the locations where a specific short URL has been accessed. Leaflet CSS was used to introduce a Map to our site.
 
+![Map View](./map.png)
+
 ## CSV file for Stats
 A new CSV file can be exported with the newly acquired device, browser, and geo-location details for each short URL created. This is in addition to the existing CSV file with the count of 'hits' for each short URL. 
+
+![Stats CSV](./csv.png)
 
 ## We love our contributors ❤️❤️
 
