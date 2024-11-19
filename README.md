@@ -154,23 +154,42 @@ This website is now hosted on Render! Each commit to the main branch will redepl
 
 Visit at [https://url-shortner-srt8.onrender.com](https://url-shortner-srt8.onrender.com)
 
+## Phishing and Malicious Website Protection
+TXTLY now support the option for users to scan their URLs for possible security vulnerabilities in the form of phishing scams or malware. To do this, first create a new URL and ensure to check the option to initiate a scan:
+
+![Option to initiate URL scan](./assets/security-option.png)
+
+After clicking the generate button, this will do a variety of checks on the URL structure, but most notably it will initiate a VirusTotal scan using thier API. If the URL is found to be malicious, it will show a warning and link to VirusTotal statistics if present:
+
+![URL List View with warning](./assets/security-warning.png)
+
+**Note**: _YouTube is obviously not a malicious URL, this was just used for testing. The malicious counts in the following picture will confirm._
+
+Clicking on the link to the VirusTotal stats, the user will be brought to a page like so:
+
+![VirusTotal stats view](./assets/virus-total-stats.png)
+
+Finally, the user may look at the full JSON report of the VirusTotal report clicking on the link under the table:
+
+![VirusTotal JSON view](./assets/virus-total-json.png)
+
 ## Device and Browser Tracking
 The system now tracks devices and browsers that access the short URLs created using our URL Shortener. This helps enhance the analytics by tracking users' devices and browsers, providing deeper insights into how and where links are accessed.
 
 ## Geo-Location Details
 The information about the city, region, and country from which the short URLs are accessed is now recorded using Geo-Location tracking. IPInfo API was used to gather location details from the IP address of the device accessing the link. This introduces location-based tracking within the analytics dashboard to help users better understand geographic engagement trends for their links. 
 
-![Location and Device Tracking](./device_browser.png)
+![Location and Device Tracking](./assets/device_browser.png)
 
 ## New 'Map View' Feature
 A map of the USA has been integrated, displaying markers at all the locations where a specific short URL has been accessed. Leaflet CSS was used to introduce a Map to our site.
 
-![Map View](./map.png)
+![Map View](./assets/map.png)
 
 ## CSV file for Stats
 A new CSV file can be exported with the newly acquired device, browser, and geo-location details for each short URL created. This is in addition to the existing CSV file with the count of 'hits' for each short URL. 
 
-![Stats CSV](./csv.png)
+![Stats CSV](./assets/csv.png)
 
 ## We love our contributors ❤️❤️
 
