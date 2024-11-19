@@ -7,9 +7,9 @@
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/NCSU-CSC510-Group-BHAKQH/URL-Shortner)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/graphs/commit-activity)
 [![GitHub license](https://img.shields.io/github/license/NCSU-CSC510-Group-BHAKQH/URL-Shortner)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/blob/develop/LICENSE)
 
-<!-- [![Build](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/actions/workflows/unit_test.yaml/badge.svg)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/actions/workflows/unit_test.yaml) -->
+[![Build](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/actions/workflows/unit_test.yaml/badge.svg)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/actions/workflows/unit_test.yaml)
 
-<!-- [![Linting Check](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/actions/workflows/linting_workflow.yml/badge.svg)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/actions/workflows/linting_workflow.yml) -->
+[![Linting Check](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/actions/workflows/linting_workflow.yml/badge.svg)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/actions/workflows/linting_workflow.yml) 
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14026734.svg)](https://doi.org/10.5281/zenodo.14026734)
 
