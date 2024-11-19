@@ -7,23 +7,20 @@
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/NCSU-CSC510-Group-BHAKQH/URL-Shortner)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/graphs/commit-activity)
 [![GitHub license](https://img.shields.io/github/license/NCSU-CSC510-Group-BHAKQH/URL-Shortner)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/blob/develop/LICENSE)
 
-<!-- [![Build](https://github.com/fantastic-riddles/URL-Shortner/actions/workflows/unit_test.yaml/badge.svg)](https://github.com/fantastic-riddles/URL-Shortner/actions/workflows/unit_test.yaml) -->
+<!-- [![Build](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/actions/workflows/unit_test.yaml/badge.svg)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/actions/workflows/unit_test.yaml) -->
 
-<!-- [![Linting Check](https://github.com/fantastic-riddles/URL-Shortner/actions/workflows/linting_workflow.yml/badge.svg)](https://github.com/fantastic-riddles/URL-Shortner/actions/workflows/linting_workflow.yml) -->
+<!-- [![Linting Check](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/actions/workflows/linting_workflow.yml/badge.svg)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/actions/workflows/linting_workflow.yml) -->
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14026734.svg)](https://doi.org/10.5281/zenodo.14026734)
 
-[![GitHub issues](https://img.shields.io/github/issues/fantastic-riddles/URL-Shortner)](https://github.com/fantastic-riddles/URL-Shortner/issues)
-[![codecov](https://codecov.io/gh/fantastic-riddles/URL-Shortner/graph/badge.svg?token=5Q5FTFG82W)](https://codecov.io/gh/fantastic-riddles/URL-Shortner)
-
-[![Documentation Badge](https://img.shields.io/badge/API_Documentation-pdoc-blue.svg)](https://lemon-desert-093c6c80f.2.azurestaticapps.net/)
-[![Documentation Badge](https://img.shields.io/badge/APP_Documentation-compodoc-blue.svg)](https://victorious-sky-08a81ed0f.2.azurestaticapps.net/)
+[![GitHub issues](https://img.shields.io/github/issues/NCSU-CSC510-Group-BHAKQH/URL-Shortner)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/issues)
+[![codecov](https://codecov.io/gh/NCSU-CSC510-Group-BHAKQH/URL-Shortner/graph/badge.svg?token=5Q5FTFG82W)](https://codecov.io/gh/NCSU-CSC510-Group-BHAKQH/URL-Shortner)
 
 ---
 Txtly URL-Shortner
 ---
 
-Welcome to URL-Shortner by Group 21!
+Welcome to URL-Shortner by Group 15!
 
 Inspired by Group 5's fantastic groundwork, we've taken the core functionality of a URL shortener and enhanced it with new, powerful features to provide a seamless user experience. Our goal? To make URL shortening simple, customizable, and insightful.
 
@@ -159,7 +156,7 @@ Visit at [https://url-shortner-srt8.onrender.com](https://url-shortner-srt8.onre
 
 ## We love our contributors ❤️❤️
 
-Make a [pull request](https://github.com/fantastic-riddles/URL-Shortner/compare) to help contribute.
+Make a [pull request](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/compare) to help contribute.
 
 We reference our UI from Zenblog.
 
