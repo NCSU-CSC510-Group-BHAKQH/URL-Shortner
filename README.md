@@ -7,23 +7,20 @@
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/NCSU-CSC510-Group-BHAKQH/URL-Shortner)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/graphs/commit-activity)
 [![GitHub license](https://img.shields.io/github/license/NCSU-CSC510-Group-BHAKQH/URL-Shortner)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/blob/develop/LICENSE)
 
-<!-- [![Build](https://github.com/fantastic-riddles/URL-Shortner/actions/workflows/unit_test.yaml/badge.svg)](https://github.com/fantastic-riddles/URL-Shortner/actions/workflows/unit_test.yaml) -->
+[![Build](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/actions/workflows/unit_test.yaml/badge.svg)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/actions/workflows/unit_test.yaml)
 
-<!-- [![Linting Check](https://github.com/fantastic-riddles/URL-Shortner/actions/workflows/linting_workflow.yml/badge.svg)](https://github.com/fantastic-riddles/URL-Shortner/actions/workflows/linting_workflow.yml) -->
+[![Linting Check](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/actions/workflows/linting_workflow.yml/badge.svg)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/actions/workflows/linting_workflow.yml) 
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14026734.svg)](https://doi.org/10.5281/zenodo.14026734)
 
-[![GitHub issues](https://img.shields.io/github/issues/fantastic-riddles/URL-Shortner)](https://github.com/fantastic-riddles/URL-Shortner/issues)
-[![codecov](https://codecov.io/gh/fantastic-riddles/URL-Shortner/graph/badge.svg?token=5Q5FTFG82W)](https://codecov.io/gh/fantastic-riddles/URL-Shortner)
-
-[![Documentation Badge](https://img.shields.io/badge/API_Documentation-pdoc-blue.svg)](https://lemon-desert-093c6c80f.2.azurestaticapps.net/)
-[![Documentation Badge](https://img.shields.io/badge/APP_Documentation-compodoc-blue.svg)](https://victorious-sky-08a81ed0f.2.azurestaticapps.net/)
+[![GitHub issues](https://img.shields.io/github/issues/NCSU-CSC510-Group-BHAKQH/URL-Shortner)](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/issues)
+[![codecov](https://codecov.io/gh/NCSU-CSC510-Group-BHAKQH/URL-Shortner/graph/badge.svg?token=5Q5FTFG82W)](https://codecov.io/gh/NCSU-CSC510-Group-BHAKQH/URL-Shortner)
 
 ---
 Txtly URL-Shortner
 ---
 
-Welcome to URL-Shortner by Group 21!
+Welcome to URL-Shortner by Group 15!
 
 Inspired by Group 5's fantastic groundwork, we've taken the core functionality of a URL shortener and enhanced it with new, powerful features to provide a seamless user experience. Our goal? To make URL shortening simple, customizable, and insightful.
 
@@ -153,13 +150,61 @@ can always manage your URLs!
 ---
 
 ## Render Deployment
-This website is now hosted on render! Each commit to the main branch will redeploy the service.
+This website is now hosted on Render! Each commit to the main branch will redeploy the service.
 
 Visit at [https://url-shortner-srt8.onrender.com](https://url-shortner-srt8.onrender.com)
 
+## Use with Docker
+The deployment with Render is only possible with the use of Docker. To remain on the free tier for web service hosting on Render, we have created a [Docker](./Dockerfile) image that hosts the MySQL database as well as the web server. To build the docker image:
+
+    docker build . -t url-shortner
+
+To run the container:
+
+    docker run --rm -p 8000:8000 url-shortner:latest
+
+You can conncet to the container then at [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
+
+## Phishing and Malicious Website Protection
+TXTLY now support the option for users to scan their URLs for possible security vulnerabilities in the form of phishing scams or malware. To do this, first create a new URL and ensure to check the option to initiate a scan:
+
+![Option to initiate URL scan](./assets/security-option.png)
+
+After clicking the generate button, this will do a variety of checks on the URL structure, but most notably it will initiate a VirusTotal scan using thier API. If the URL is found to be malicious, it will show a warning and link to VirusTotal statistics if present:
+
+![URL List View with warning](./assets/security-warning.png)
+
+**Note**: _YouTube is obviously not a malicious URL, this was just used for testing. The malicious counts in the following picture will confirm._
+
+Clicking on the link to the VirusTotal stats, the user will be brought to a page like so:
+
+![VirusTotal stats view](./assets/virus-total-stats.png)
+
+Finally, the user may look at the full JSON report of the VirusTotal report clicking on the link under the table:
+
+![VirusTotal JSON view](./assets/virus-total-json.png)
+
+## Device and Browser Tracking
+The system now tracks devices and browsers that access the short URLs created using our URL Shortener. This helps enhance the analytics by tracking users' devices and browsers, providing deeper insights into how and where links are accessed.
+
+## Geo-Location Details
+The information about the city, region, and country from which the short URLs are accessed is now recorded using Geo-Location tracking. IPInfo API was used to gather location details from the IP address of the device accessing the link. This introduces location-based tracking within the analytics dashboard to help users better understand geographic engagement trends for their links. 
+
+![Location and Device Tracking](./assets/device_browser.png)
+
+## New 'Map View' Feature
+A map of the USA has been integrated, displaying markers at all the locations where a specific short URL has been accessed. Leaflet CSS was used to introduce a Map to our site.
+
+![Map View](./assets/map.png)
+
+## CSV file for Stats
+A new CSV file can be exported with the newly acquired device, browser, and geo-location details for each short URL created. This is in addition to the existing CSV file with the count of 'hits' for each short URL. 
+
+![Stats CSV](./assets/csv.png)
+
 ## We love our contributors ❤️❤️
 
-Make a [pull request](https://github.com/fantastic-riddles/URL-Shortner/compare) to help contribute.
+Make a [pull request](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/compare) to help contribute.
 
 We reference our UI from Zenblog.
 
