@@ -154,6 +154,17 @@ This website is now hosted on Render! Each commit to the main branch will redepl
 
 Visit at [https://url-shortner-srt8.onrender.com](https://url-shortner-srt8.onrender.com)
 
+## Use with Docker
+The deployment with Render is only possible with the use of Docker. To remain on the free tier for web service hosting on Render, we have created a [Docker](./Dockerfile) image that hosts the MySQL database as well as the web server. To build the docker image:
+
+    docker build . -t url-shortner
+
+To run the container:
+
+    docker run --rm -p 8000:8000 url-shortner:latest
+
+You can conncet to the container then at [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
+
 ## Phishing and Malicious Website Protection
 TXTLY now support the option for users to scan their URLs for possible security vulnerabilities in the form of phishing scams or malware. To do this, first create a new URL and ensure to check the option to initiate a scan:
 
