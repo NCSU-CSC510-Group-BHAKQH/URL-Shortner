@@ -202,6 +202,10 @@ A new CSV file can be exported with the newly acquired device, browser, and geo-
 
 ![Stats CSV](./assets/csv.png)
 
+## Fall 2024 Project 3 Presentation Video
+
+You can see the project presentation at - [Project 3 Fall 2024 Group 15](https://www.youtube.com/watch?v=kZ0pEdF8-1Y)
+
 ## We love our contributors ❤️❤️
 
 Make a [pull request](https://github.com/NCSU-CSC510-Group-BHAKQH/URL-Shortner/compare) to help contribute.
