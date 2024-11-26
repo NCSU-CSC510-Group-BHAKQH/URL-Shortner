@@ -63,14 +63,14 @@ class DoSecurityCheckTestCase(TestCase):
         self.assertFalse(self.link.possibly_malicious)
         self.assertEqual(self.link.vt_analysis_stats, {"malicious": 0, "suspicious": 0})
 
-    # @patch("shortner.utils.Client")
-    # def test_virus_total_api_error(self, mock_client):
-    #     """Test that API errors in VirusTotal don't crash the function."""
-    #     mock_client.side_effect = Exception("VirusTotal API error")
+    @patch("shortner.utils.Client")
+    def test_virus_total_api_error(self, mock_client):
+        """Test that API errors in VirusTotal don't crash the function."""
+        mock_client.side_effect = Exception("VirusTotal API error")
 
-    #     do_security_check(self.link)
+        do_security_check(self.link)
 
-    #     self.assertFalse(self.link.possibly_malicious)  # Should remain unaffected
+        self.assertFalse(self.link.possibly_malicious)  # Should remain unaffected
 
     def test_combined_checks(self):
         """Test that a combination of issues flags a URL as malicious."""
