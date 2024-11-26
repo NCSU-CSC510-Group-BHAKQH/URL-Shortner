@@ -40,7 +40,7 @@ def do_security_check(link: Link) -> None:
             analysis = vt_client.scan_url(long_url, True)
             if analysis:
                 a_stats = dict(analysis.get("stats"))
-                if a_stats["malicious"] >= 0 or a_stats["suspicious"] >= 0:
+                if a_stats["malicious"] > 0 or a_stats["suspicious"] > 0:
                     link.vt_analysis_stats = a_stats
                     link.vt_analysis_id = analysis.id
                     malicious = True
